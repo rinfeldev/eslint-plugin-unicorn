@@ -5,6 +5,8 @@
 
 > Various awesome ESLint rules
 
+> ⚠️ This is a fork of [`sindresorhus/eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn) with the `explicit-length-check` rule's `greater-than-or-equal` option retained. Read more about why this option was removed by the original authors and why we chose to keep using this style [in the original GitHub issue discussions](https://github.com/sindresorhus/eslint-plugin-unicorn/issues/957).
+
 You might want to check out [XO](https://github.com/xojs/xo), which includes this plugin.
 
 [**Propose or contribute a new rule ➡**](.github/contributing.md)
