@@ -159,6 +159,8 @@ The `non-zero` option can be configured with one of the following:
   - Enforces non-zero to be checked with: `foo.length > 0`
 - `not-equal`
   - Enforces non-zero to be checked with: `foo.length !== 0`
+- `greater-than-or-equal`
+  - Enforces non-zero to be checked with: `foo.length >= 1`
 
 ## Unsafe to fix case
 
