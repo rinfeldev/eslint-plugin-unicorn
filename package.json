@@ -1,6 +1,6 @@
 {
 	"name": "@rinfel/eslint-plugin-unicorn",
-	"version": "40.0.0",
+	"version": "40.0.0-1",
 	"description": "Various awesome ESLint rules",
 	"license": "MIT",
 	"repository": "rinfeldev/eslint-plugin-unicorn",
