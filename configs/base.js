@@ -8,6 +8,6 @@ module.exports = {
 		sourceType: 'module',
 	},
 	plugins: [
-		'unicorn',
+		'@rinfel/unicorn',
 	],
 };

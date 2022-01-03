@@ -24,7 +24,7 @@ const ruleNames = Object.keys(rules).filter(ruleName => !rules[ruleName].meta.de
 const rulesTableContent = ruleNames
 	.map(ruleName => {
 		// Check which emojis to show for this rule.
-		const isRecommended = configs.recommended.rules[`unicorn/${ruleName}`] === 'error';
+		const isRecommended = configs.recommended.rules[`@rinfel/unicorn/${ruleName}`] === 'error';
 		const {fixable, hasSuggestions} = rules[ruleName].meta;
 
 		const url = `docs/rules/${ruleName}.md`;

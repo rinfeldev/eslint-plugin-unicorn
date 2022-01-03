@@ -18,12 +18,12 @@ module.exports = {
 		},
 	},
 	plugins: [
-		'unicorn',
+		'@rinfel/unicorn',
 	],
-	extends: 'plugin:unicorn/all',
+	extends: 'plugin:@rinfel/unicorn/all',
 	rules: {
 		// This rule crashing on replace string inside `jsx` or `Unicode escape sequence`
-		'unicorn/string-content': 'off',
+		'@rinfel/unicorn/string-content': 'off',
 	},
 	overrides: [
 		{

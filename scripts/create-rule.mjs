@@ -41,7 +41,7 @@ function updateRecommended(id) {
 	const RULE_START = '\n\trules: {\n';
 	const RULE_END = '\n\t}';
 	const RULE_INDENT = '\t'.repeat(2);
-	let ruleContent = `${RULE_INDENT}'unicorn/${id}': 'error',`;
+	let ruleContent = `${RULE_INDENT}'@rinfel/unicorn/${id}': 'error',`;
 
 	const file = path.join(ROOT, 'configs/recommended.js');
 	const content = fs.readFileSync(file, 'utf8');
@@ -53,7 +53,7 @@ function updateRecommended(id) {
 		throw new Error('Unexpected content in “configs/recommended.js”.');
 	}
 
-	const unicornRuleLines = lines.filter(line => line.startsWith(`${RULE_INDENT}'unicorn/`));
+	const unicornRuleLines = lines.filter(line => line.startsWith(`${RULE_INDENT}'@rinfel/unicorn/`));
 	let insertIndex;
 	if (ruleContent.localeCompare(unicornRuleLines[0]) === -1) {
 		insertIndex = 0;

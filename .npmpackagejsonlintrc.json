@@ -11,7 +11,7 @@
 			"error",
 			{
 				"exceptions": [
-					"eslint-plugin-unicorn"
+					"@rinfel/eslint-plugin-unicorn"
 				]
 			}
 		],

@@ -35,6 +35,6 @@ module.exports = {
 				jsx: true,
 			},
 		},
-		extends: ['plugin:unicorn/all'],
+		extends: ['plugin:@rinfel/unicorn/all'],
 	},
 };

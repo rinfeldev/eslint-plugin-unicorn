@@ -12,7 +12,7 @@ const eslint = new ESLint({
 	useEslintrc: false,
 	extensions: ['.js', '.mjs'],
 	plugins: {
-		unicorn,
+		'@rinfel/unicorn': unicorn,
 	},
 	fix,
 	overrideConfig: {
@@ -22,7 +22,7 @@ const eslint = new ESLint({
 			'test/integration/fixtures-local',
 		],
 		rules: {
-			'unicorn/prevent-abbreviations': [
+			'@rinfel/unicorn/prevent-abbreviations': [
 				'error',
 				{
 					replacements: {
@@ -31,10 +31,10 @@ const eslint = new ESLint({
 				},
 			],
 			// https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1109#issuecomment-782689255
-			'unicorn/consistent-destructuring': 'off',
+			'@rinfel/unicorn/consistent-destructuring': 'off',
 			// Buggy
-			'unicorn/custom-error-definition': 'off',
-			'unicorn/prefer-array-flat': [
+			'@rinfel/unicorn/custom-error-definition': 'off',
+			'@rinfel/unicorn/prefer-array-flat': [
 				'error',
 				{
 					functions: [
@@ -44,17 +44,17 @@ const eslint = new ESLint({
 				},
 			],
 			// Annoying
-			'unicorn/no-keyword-prefix': 'off',
-			'unicorn/no-unsafe-regex': 'off',
+			'@rinfel/unicorn/no-keyword-prefix': 'off',
+			'@rinfel/unicorn/no-unsafe-regex': 'off',
 			// Outdated
-			'unicorn/import-index': 'off',
+			'@rinfel/unicorn/import-index': 'off',
 			// Not ready yet
-			'unicorn/prefer-string-replace-all': 'off',
-			'unicorn/prefer-top-level-await': 'off',
-			'unicorn/prefer-object-has-own': 'off',
-			'unicorn/prefer-at': 'off',
+			'@rinfel/unicorn/prefer-string-replace-all': 'off',
+			'@rinfel/unicorn/prefer-top-level-await': 'off',
+			'@rinfel/unicorn/prefer-object-has-own': 'off',
+			'@rinfel/unicorn/prefer-at': 'off',
 			// TODO: Turn this on when `xo` updated `eslint-plugin-unicorn`
-			'unicorn/relative-url-style': 'off',
+			'@rinfel/unicorn/relative-url-style': 'off',
 		},
 		overrides: [
 			{
@@ -62,7 +62,7 @@ const eslint = new ESLint({
 					'**/*.js',
 				],
 				rules: {
-					'unicorn/prefer-module': 'off',
+					'@rinfel/unicorn/prefer-module': 'off',
 				},
 			},
 		],
