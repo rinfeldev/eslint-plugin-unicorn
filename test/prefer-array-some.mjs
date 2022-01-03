@@ -109,6 +109,7 @@ test.snapshot({
 
 // - `.filter(…).length > 0`
 // - `.filter(…).length !== 0`
+// - `.filter(…).length >= 1`
 test.snapshot({
 	valid: [
 		// `> 0`
@@ -132,7 +133,6 @@ test.snapshot({
 		'0 !== array.filter(fn).length',
 
 		// `>= 1`
-		'array.filter(fn).length >= 1',
 		'array.filter(fn).length >= 1.',
 		'array.filter(fn).length >= 1.0',
 		'array.filter(fn).length >= 0x1',
@@ -158,6 +158,7 @@ test.snapshot({
 	invalid: [
 		'array.filter(fn).length > 0',
 		'array.filter(fn).length !== 0',
+		'array.filter(fn).length >= 1',
 		outdent`
 			if (
 				((
@@ -196,6 +197,11 @@ test.vue({
 		},
 		{
 			code: '<template><div v-if="foo.filter(fn).length !== 0"></div></template>',
+			output: '<template><div v-if="foo.some(fn)"></div></template>',
+			errors: 1,
+		},
+		{
+			code: '<template><div v-if="foo.filter(fn).length >=1"></div></template>',
 			output: '<template><div v-if="foo.some(fn)"></div></template>',
 			errors: 1,
 		},

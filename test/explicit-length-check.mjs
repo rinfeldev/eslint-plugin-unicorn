@@ -72,6 +72,10 @@ test({
 			code: 'if (foo.length !== 0) {}',
 			options: [{'non-zero': 'not-equal'}],
 		},
+		{
+			code: 'if (foo.length >= 1) {}',
+			options: [{'non-zero': 'greater-than-or-equal'}],
+		},
 
 		// Checking 'non-zero'
 		'if (foo.length === 0) {}',
@@ -123,6 +127,12 @@ test({
 			options: [{'non-zero': 'greater-than'}],
 		}),
 		suggestionCase({
+			code: 'const x = foo.length || bar()',
+			output: 'const x = foo.length >= 1 || bar()',
+			desc: 'Replace `.length` with `.length >= 1`.',
+			options: [{'non-zero': 'greater-than-or-equal'}],
+		}),
+		suggestionCase({
 			code: '() => foo.length && bar()',
 			output: '() => foo.length > 0 && bar()',
 		}),
@@ -165,9 +175,22 @@ test.snapshot({
 			options: [{'non-zero': 'not-equal'}],
 		},
 		{
+			code: outdent`
+				const foo = (
+					${nonZeroCases.filter(code => code !== 'foo.length >= 1').join(' &&\n\t')}
+				) ? 1 : 2;
+			`,
+			options: [{'non-zero': 'greater-than-or-equal'}],
+		},
+		{
 			// Known, number static value
 			code: 'const foo = { length: 123 }; if (foo.length) {}',
 			options: [{'non-zero': 'not-equal'}],
+		},
+		{
+			// Known, number static value
+			code: 'const foo = { length: 123 }; if (foo.length) {}',
+			options: [{'non-zero': 'greater-than-or-equal'}],
 		},
 		'if (foo.bar && foo.bar.length) {}',
 		'if (foo.length || foo.bar()) {}',
@@ -238,6 +261,10 @@ test.snapshot({
 		{
 			code: '<template><div v-if="foo.length"></div></template>',
 			options: [{'non-zero': 'greater-than'}],
+		},
+		{
+			code: '<template><div v-if="foo.length"></div></template>',
+			options: [{'non-zero': 'greater-than-or-equal'}],
 		},
 		'<template><div v-if="foo.length && bar"></div></template>',
 		'<script>if (foo.length) {}</script>',

@@ -49,9 +49,12 @@ const isCheckingUndefined = node =>
 const arrayFilterCallSelector = [
 	'BinaryExpression',
 	'[right.type="Literal"]',
-	'[right.raw="0"]',
-	// We assume the user already follows `unicorn/explicit-length-check`. These are allowed in that rule.
-	matches(['[operator=">"]', '[operator="!=="]']),
+	// We assume the user already follows `unicorn/explicit-length-check`, these are allowed in that rule
+	matches([
+		'[operator=">"][right.raw="0"]',
+		'[operator="!=="][right.raw="0"]',
+		'[operator=">="][right.raw="1"]',
+	]),
 	' > ',
 	`${memberExpressionSelector('length')}.left`,
 	' > ',
